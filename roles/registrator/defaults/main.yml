@@ -1,3 +1,4 @@
 ---
 registrator_image: gliderlabs/registrator
 registrator_image_tag: latest
+registrator_resync: 15
