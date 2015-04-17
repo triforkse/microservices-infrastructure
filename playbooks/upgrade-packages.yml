@@ -21,6 +21,11 @@
       name: "*"
       state: latest
 
+  - name: update grub
+    sudo: yes
+    shell: grub2-set-default 0 
+    when: kernel.changed 
+
   - name: reboot host
     sudo: yes
     shell: nohup bash -c "sleep 2s && reboot" &
