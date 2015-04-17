@@ -28,6 +28,32 @@
   tags:
     - docker
 
+- name: disable selinux
+  sudo: yes
+  lineinfile:
+    dest: /etc/sysconfig/docker
+    regexp: ^OPTIONS
+    line: OPTIONS=
+    state: present
+  when: docker_selinux_disable is defined
+  notify:
+    - restart docker
+  tags:
+   - docker
+
+- name: change storage backend 
+  sudo: yes
+  lineinfile:
+    dest: /etc/sysconfig/docker-storage
+    regexp: ^DOCKER_STORAGE_OPTIONS=
+    line: DOCKER_STORAGE_OPTIONS= -s {{ docker_storage_driver }}
+    state: present
+  when: docker_storage_driver is defined
+  notify: 
+    - restart docker
+  tags:
+    - docker
+
 - name: enable docker
   sudo: yes
   service:
