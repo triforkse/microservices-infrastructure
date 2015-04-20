@@ -28,3 +28,6 @@ host-[04:05]
 
 [proxy_servers]
 host-[04:05]
+
+[logstash_server]
+host-01

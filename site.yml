@@ -75,3 +75,8 @@
   gather_facts: no
   roles:
     - haproxy
+
+- hosts: logstash_server
+  gather_facts: no
+  roles:
+    - logstash

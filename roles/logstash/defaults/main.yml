@@ -1,0 +1,10 @@
+---
+logstash_image: loshkovskyi/docker-logstash
+logstash_image_tag: latest
+logstash_ports: "-p 6379:6379 -p 5514:5514"
+logstash_service: logstash
+logstash_env: "/etc/default/{{ logstash_service }}"
+logstash_container_name: "{{ logstash_service }}"
+logstash_conf_host: /etc/logstash/conf.d
+logstash_conf_container: /home/logstash/conf.d
+logstash_entrypoint_command: logstash

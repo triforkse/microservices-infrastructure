@@ -1,0 +1,29 @@
+[Unit]
+Description={{ logstash_service }}
+After=docker.service
+Requires=docker.service
+Requires=dnsmasq.service
+
+[Service]
+Restart=on-failure
+RestartSec=20
+TimeoutStartSec=20m
+
+ExecStartPre=-/usr/bin/docker rm {{ logstash_container_name }}
+ExecStartPre=-/usr/bin/docker pull {{ logstash_image }}:{{ logstash_image_tag }}
+
+ExecStart=/usr/bin/docker run \
+    --rm \
+    --name={{ logstash_container_name }} \
+    {{ logstash_ports }} \
+    --env-file={{ logstash_env }} \
+    --volume={{ logstash_conf_host }}:{{ logstash_conf_container }} \
+    {{ logstash_image }}:{{ logstash_image_tag }} \
+    {{ logstash_entrypoint_command }}
+
+ExecStop=/bin/bash -c " \
+    /usr/bin/docker kill {{ logstash_container_name }} && \
+    /usr/bin/docker rm {{ logstash_container_name }}"
+
+[Install]
+WantedBy=multi-user.target
