@@ -23,6 +23,7 @@
     - consul
     - registrator
     - logrotate
+    - logstash
 
 - include: playbooks/consul-join-wan.yml
 
@@ -75,8 +76,3 @@
   gather_facts: no
   roles:
     - haproxy
-
-- hosts: logstash_server
-  gather_facts: no
-  roles:
-    - logstash
