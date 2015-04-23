@@ -105,24 +105,6 @@
 - include: agent_acl.yml
   when: consul_agent_acl_token is not defined or consul_agent_token != consul_agent_acl_token
 
-- name: configure nginx
-  sudo: yes
-  command: "{{ item }}"
-  with_items:
-   - curl -X PUT -d @/etc/consul/consul.nginx localhost:8500/v1/kv/service/nginx/templates/consul?token={{ consul_agent_token }}
-   - curl -X PUT -d '{{ nginx_admin_password_encrypted }}' localhost:8500/v1/kv/service/nginx/auth/users/admin?token={{ consul_agent_token }}
-  tags:
-    - consul
-
-- name: enable nginx-consul
-  sudo: yes
-  service:
-    name: nginx-consul
-    enabled: yes
-    state: started
-  notify:
-    - restart nginx-consul
-  tags:
-    - consul
-
 - meta: flush_handlers
+
+- include: nginx_proxy.yml

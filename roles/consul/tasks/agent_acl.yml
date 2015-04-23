@@ -17,6 +17,3 @@
     dest: /etc/consul/acl.json
   tags:
     - consul
-
-- include: reload_consul.yml
-  
