@@ -1,8 +1,13 @@
-# Logstash
+## Logstash
 
-Logstash role for deploying and managing Logstash 1.5 with Docker and systemd.
+[Logstash](http://logstash.net) role for deploying and managing Logstash 1.5 with Docker and systemd.
 
-In order to forward logs from Logstash to Cisco LaaS, please add 
-the following directive to your configuration:
+## Variables
 
-```logstash_forwarder_token: YOUR_TOKEN```
+You can use these variables to customize your Logstash installations.
+
+| var | description | default |
+|-----|-------------|---------|
+|`logstash_output_stdout`|a simple print to STDOUT|yes|
+|`logstash_output_logentries`|forward logs to [logentries](https://logentries.com/)|no|
+|`logstash_logentries_token`|unique token provided by logentries|no|
