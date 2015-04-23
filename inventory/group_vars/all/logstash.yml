@@ -1,0 +1,5 @@
+---
+# Manage Logstash containers
+logstash_output_stdout: yes
+logstash_output_logentries: no
+logstash_logentries_token: no

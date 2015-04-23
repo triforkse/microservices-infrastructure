@@ -12,5 +12,12 @@ input {
 }
 
 output {
-  stdout { } 
+{% if logstash_output_stdout %}
+  stdout {  }
+{% endif %}
+{% if logstash_output_logentries %}
+  logentries {
+    token => "{{ logstash_logentries_token }}"
+  }
+{% endif %}
 }

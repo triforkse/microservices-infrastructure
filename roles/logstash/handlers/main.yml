@@ -5,7 +5,7 @@
   tags: 
     - logstash 
 
-- name: register logstash service (may take a while when run first time)
+- name: register logstash service
   sudo: yes 
   service:  
     enabled: yes 

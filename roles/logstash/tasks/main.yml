@@ -18,17 +18,7 @@
   tags: 
     - logstash
 
-- name: generate default env file
-  sudo: yes 
-  template:
-    src: logstash-env.j2 
-    dest: "/etc/default/{{ logstash_service }}"
-  notify: 
-    - restart logstash
-  tags: 
-    - logstash
-
-- name: generate systemd service file
+- name: generate systemd service file (may take a while when run first time)
   sudo: yes
   template:
     src: logstash-service.j2 
