@@ -14,7 +14,9 @@ input {
   }
 {% endif %}
 {% if logstash_input_collectd %}
-  collectd {
+  udp {
+    codec => "collectd"
+    port => 25826
     type => "collectd"
   }
 {% endif %}
