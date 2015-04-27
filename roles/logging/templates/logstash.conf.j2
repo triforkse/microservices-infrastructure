@@ -1,19 +1,28 @@
 input {
+{% if logstash_input_redis %}
   redis {
     host => "127.0.0.1"
     type => "redis-input"
     data_type => "list"
     key => "logstash"
   }
+{% endif %}
+{% if logstash_input_syslog %}
   syslog {
-    type => syslog
     port => 5514
+    type => "syslog"
   }
+{% endif %}
+{% if logstash_input_collectd %}
+  collectd {
+    type => "collectd"
+  }
+{% endif %}
 }
 
 output {
 {% if logstash_output_stdout %}
-  stdout {  }
+  stdout { }
 {% endif %}
 {% if logstash_output_logentries %}
   logentries {

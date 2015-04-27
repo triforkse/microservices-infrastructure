@@ -18,7 +18,7 @@
   tags: 
     - logging 
 
-- name: generate systemd service file (may take a while when run first time)
+- name: generate systemd service file
   sudo: yes
   template:
     src: logstash-service.j2 

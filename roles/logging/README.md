@@ -8,6 +8,9 @@ You can use these variables to customize your Logstash installations.
 
 | var | description | default |
 |-----|-------------|---------|
+|`logstash_input_redis`|read events from a Redis instance|yes|
+|`logstash_input_syslog`|read RFC3164 syslog messages|yes|
+|`logstash_input_collectd`|read events from the collectd binary protocol|yes|
 |`logstash_output_stdout`|a simple print to STDOUT|yes|
 |`logstash_output_logentries`|forward logs to [logentries](https://logentries.com/)|no|
 |`logstash_logentries_token`|unique token provided by logentries|no|

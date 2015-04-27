@@ -7,6 +7,11 @@ logstash_container_name: "{{ logstash_service }}"
 logstash_conf_host: /etc/logstash/conf.d
 logstash_conf_container: /home/logstash/conf.d
 logstash_entrypoint_command: logstash
+
+# Logstash configuration
+logstash_input_redis: yes
+logstash_input_syslog: yes
+logstash_input_collectd: yes
 logstash_output_stdout: yes
 logstash_output_logentries: no
 logstash_logentries_token: no
