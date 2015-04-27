@@ -6,7 +6,7 @@
     state: directory
     mode: 0755
   tags:
-    - logstash
+    - logging
 
 - name: prepare config for logstash container
   sudo: yes 
@@ -16,7 +16,7 @@
   notify:
     - restart logstash
   tags: 
-    - logstash
+    - logging 
 
 - name: generate systemd service file (may take a while when run first time)
   sudo: yes
@@ -27,6 +27,6 @@
     - register logstash service
     - reload systemd daemon 
   tags: 
-    - logstash
+    - logging
 
 - meta: flush_handlers

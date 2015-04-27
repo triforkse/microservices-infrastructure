@@ -23,7 +23,7 @@
     - consul
     - registrator
     - logrotate
-    - logstash
+    - logging 
 
 - include: playbooks/consul-join-wan.yml
 

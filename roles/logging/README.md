@@ -1,6 +1,6 @@
 ## Logstash
 
-[Logstash](http://logstash.net) role for deploying and managing Logstash 1.5 with Docker and systemd.
+Logging role for deploying and managing [Logstash](http://logstash.net) 1.5 with Docker and systemd.
 
 ## Variables
 

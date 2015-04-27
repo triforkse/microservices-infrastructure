@@ -11,4 +11,4 @@
     - zookeeper
     - mesos
     - marathon
-    - logstash
+    - logging
