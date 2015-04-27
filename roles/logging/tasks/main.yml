@@ -24,8 +24,8 @@
     src: logstash-service.j2 
     dest: "/usr/lib/systemd/system/{{ logstash_service }}.service"
   notify: 
-    - register logstash service
     - reload systemd daemon 
+    - enable and start logstash 
   tags: 
     - logging
 
