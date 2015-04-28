@@ -1,12 +1,4 @@
 input {
-{% if logstash_input_redis %}
-  redis {
-    host => "127.0.0.1"
-    type => "redis-input"
-    data_type => "list"
-    key => "logstash"
-  }
-{% endif %}
 {% if logstash_input_syslog %}
   syslog {
     port => 5514
