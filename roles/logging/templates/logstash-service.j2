@@ -17,6 +17,7 @@ ExecStart=/usr/bin/docker run \
     --name={{ logstash_container_name }} \
     {{ logstash_ports }} \
     --volume={{ logstash_conf_host }}:{{ logstash_conf_container }} \
+    --volume=/var/lib/docker/containers:{{ logstash_volume_logs }}:ro \
     {{ logstash_image }}:{{ logstash_image_tag }} \
     {{ logstash_entrypoint_command }}
 

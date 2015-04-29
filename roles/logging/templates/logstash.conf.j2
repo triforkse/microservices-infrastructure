@@ -1,4 +1,10 @@
 input {
+{% if logstash_input_file %}
+  file {
+    path => "{{ logstash_volume_logs }}/*/*-json.log"
+    type => "json_log"
+  }
+{% endif %}
 {% if logstash_input_syslog %}
   syslog {
     port => 5514

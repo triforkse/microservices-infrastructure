@@ -1,5 +1,6 @@
 ---
 # Manage Logstash containers
+logstash_input_file: yes
 logstash_input_syslog: yes
 logstash_input_collectd: yes
 logstash_output_stdout: yes
