@@ -1,7 +1,7 @@
 ---
 logstash_image: loshkovskyi/docker-logstash
 logstash_image_tag: latest
-logstash_ports: "-p 5514:5514 -p 25826:25826"
+logstash_ports: "-p 5514:5514 -p 25826:25826/udp"
 logstash_service: logstash
 logstash_container_name: "{{ logstash_service }}"
 logstash_conf_host: /etc/logstash/conf.d
