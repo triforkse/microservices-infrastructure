@@ -14,6 +14,10 @@ Marathon listens on port 8080. To connect to Marathon securely, set
 :data:`marathon_keystore_path` and :data:`marathon_keystore_password`,
 then connect via HTTPS on port 8443.
 
+The Marathon role also sets up `mesos-consul
+<https://github.com/CiscoCloud/mesos-consul>`_ and `marathon-consul
+<https://github.com/CiscoCloud/marathon-consul>`_ for service discovery.
+
 Variables
 ---------
 
