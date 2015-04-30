@@ -8,7 +8,8 @@ You can use these variables to customize your Logstash installations.
 
 | var | description | default |
 |-----|-------------|---------|
-|`logstash_input_file`|read Docker containers JSON type logs|yes|
+|`logstash_input_docker`|read Docker containers JSON type logs|yes|
+|`logstash_input_mesos`|read Mesos logs|yes|
 |`logstash_input_syslog`|read RFC3164 syslog messages|yes|
 |`logstash_input_collectd`|read events from the collectd binary protocol|yes|
 |`logstash_output_stdout`|a simple print to STDOUT|yes|

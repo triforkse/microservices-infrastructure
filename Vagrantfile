@@ -50,7 +50,6 @@ Vagrant.configure(2) do |config|
       "consul_bootstrap_expect" => 1,
       "mesos_cluster" => "vagrant",
       "mesos_mode" => "mixed",
-      "logstash_output_stdout" => "yes"
     })
   end
 

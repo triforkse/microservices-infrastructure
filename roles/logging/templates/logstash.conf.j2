@@ -1,8 +1,14 @@
 input {
-{% if logstash_input_file %}
+{% if logstash_input_docker %}
   file {
-    path => "{{ logstash_volume_logs }}/*/*-json.log"
-    type => "json_log"
+    path => "{{ logstash_docker_logs }}/*/*-json.log"
+    type => "docker_log"
+  }
+{% endif %}
+{% if logstash_input_mesos %}
+  file {
+    path => "{{ logstash_mesos_logs }}/*"
+    type => "mesos_log"
   }
 {% endif %}
 {% if logstash_input_syslog %}
@@ -22,7 +28,9 @@ input {
 
 output {
 {% if logstash_output_stdout %}
-  stdout { }
+  stdout {
+    codec => rubydebug
+  }
 {% endif %}
 {% if logstash_output_logentries %}
   logentries {
