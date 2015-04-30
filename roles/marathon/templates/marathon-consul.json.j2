@@ -1,0 +1,27 @@
+{
+  "id": "marathon-consul",
+  "args": [
+    "--registry=https://consul.service.{{ consul_dns_domain }}:8500",
+    "--registry-auth=admin:{{ nginx_admin_password }}",
+    "--registry-token={{ consul_acl_master_token }}",
+    "--registry-noverify"
+  ],
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "{{ marathon_consul_image }}:{{ marathon_consul_tag }}",
+      "network": "BRIDGE",
+      "portMappings": [{"containerPort": 4000, "hostPort": 4000, "protocol": "tcp"}]
+    }
+  },
+  "constraints": [["hostname", "UNIQUE"]],
+  "ports": [4000],
+  "healthChecks": [{
+    "protocol": "HTTP",
+    "path": "/health",
+    "portIndex": 0
+  }],
+  "instances": 1,
+  "cpus": 0.1,
+  "mem": 128
+}
