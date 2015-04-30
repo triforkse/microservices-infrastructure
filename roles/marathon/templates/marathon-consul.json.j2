@@ -9,7 +9,7 @@
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "{{ marathon_consul_image }}:{{ marathon_consul_tag }}",
+      "image": "{{ marathon_consul_image }}:{{ marathon_consul_image_tag }}",
       "network": "BRIDGE",
       "portMappings": [{"containerPort": 4000, "hostPort": 4000, "protocol": "tcp"}]
     }

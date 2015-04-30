@@ -32,4 +32,4 @@ consul_nginx_image_tag: latest
 mesos_consul_image: drifting/mesos-consul
 mesos_consul_image_tag: latest
 marathon_consul_image: brianhicks/marathon-consul
-marathon_consul_tag: latest
+marathon_consul_image_tag: latest
