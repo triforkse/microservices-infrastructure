@@ -10,7 +10,6 @@ docker_log_dir: /var/lib/docker/containers
 mesos_log_dir: /var/log/mesos
 logstash_docker_logs: /docker_logs
 logstash_mesos_logs: /mesos_logs
-logstash_entrypoint_command: logstash
 
 # Logstash configuration
 logstash_input_docker: yes

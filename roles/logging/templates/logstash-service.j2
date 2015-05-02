@@ -20,7 +20,6 @@ ExecStart=/usr/bin/docker run \
     --volume={{ docker_log_dir }}:{{ logstash_docker_logs }}:ro \
     --volume={{ mesos_log_dir }}:{{ logstash_mesos_logs }}:ro \
     {{ logstash_image }}:{{ logstash_image_tag }} \
-    {{ logstash_entrypoint_command }}
 
 ExecStop=/bin/bash -c " \
     /usr/bin/docker kill {{ logstash_container_name }} && \
