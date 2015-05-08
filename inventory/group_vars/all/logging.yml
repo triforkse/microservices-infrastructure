@@ -1,5 +1,6 @@
 ---
 # Manage Logstash containers
+logstash_input_log4j: yes
 logstash_input_docker: yes
 logstash_input_mesos: yes
 logstash_input_syslog: yes

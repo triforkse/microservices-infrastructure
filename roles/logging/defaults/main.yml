@@ -1,7 +1,7 @@
 ---
 logstash_image: loshkovskyi/docker-logstash
 logstash_image_tag: latest
-logstash_ports: "-p 5514:5514 -p 25826:25826/udp"
+logstash_ports: "-p 5514:5514 -p 25826:25826/udp -p 4560:4560/tcp"
 logstash_service: logstash
 logstash_container_name: "{{ logstash_service }}"
 logstash_conf_host: /etc/logstash/conf.d
@@ -12,6 +12,7 @@ logstash_docker_logs: /docker_logs
 logstash_mesos_logs: /mesos_logs
 
 # Logstash configuration
+logstash_input_log4j: yes
 logstash_input_docker: yes
 logstash_input_mesos: yes
 logstash_input_syslog: yes

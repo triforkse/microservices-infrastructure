@@ -1,4 +1,11 @@
 input {
+{% if logstash_input_log4j %}
+  log4j {
+    mode => "server"
+    port => 4560
+    type => "log4j"
+  }
+{% endif %}
 {% if logstash_input_docker %}
   file {
     path => "{{ logstash_docker_logs }}/*/*-json.log"
