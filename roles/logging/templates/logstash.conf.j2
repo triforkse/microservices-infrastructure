@@ -2,7 +2,7 @@ input {
 {% if logstash_input_log4j %}
   log4j {
     mode => "server"
-    port => 4560
+    port => {{ logstash_log4j_port }}
     type => "log4j"
   }
 {% endif %}
@@ -20,14 +20,14 @@ input {
 {% endif %}
 {% if logstash_input_syslog %}
   syslog {
-    port => 5514
+    port => {{ logstash_syslog_port }}
     type => "syslog"
   }
 {% endif %}
 {% if logstash_input_collectd %}
   udp {
     codec => "collectd"
-    port => 25826
+    port => {{ logstash_collectd_port }}
     type => "collectd"
   }
 {% endif %}
@@ -37,8 +37,8 @@ output {
 {% if logstash_output_webhdfs %}
   webhdfs {
     workers => 2
-    server => "{{ webhdfs_host }}:{{ webhdfs_port }}"
-    user => "{{ webhdfs_user }}"
+    server => "{{ logstash_webhdfs_host }}:{{ logstash_webhdfs_port }}"
+    user => "{{ logstash_webhdfs_user }}"
     path => "/logs/%{host}/logstash-%{+YYYY-MM-dd}.log"
     flush_size => 500
     compress => "gzip"

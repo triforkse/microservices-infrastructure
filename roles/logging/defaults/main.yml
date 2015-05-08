@@ -1,7 +1,6 @@
 ---
 logstash_image: loshkovskyi/docker-logstash
 logstash_image_tag: latest
-logstash_ports: "-p 5514:5514 -p 25826:25826/udp -p 4560:4560/tcp -p 50070"
 logstash_service: logstash
 logstash_container_name: "{{ logstash_service }}"
 logstash_conf_host: /etc/logstash/conf.d
@@ -10,10 +9,13 @@ docker_log_dir: /var/lib/docker/containers
 mesos_log_dir: /var/log/mesos
 logstash_docker_logs: /docker_logs
 logstash_mesos_logs: /mesos_logs
-webhdfs_host: "{{ groups['name_node'][0] }}"
-webhdfs_port: 50070
-webhdfs_user: hdfs
-webhdfs_logs_dir: /logs
+logstash_syslog_port: 5514
+logstash_collectd_port: 25826
+logstash_log4j_port: 4560
+logstash_webhdfs_host: "{{ groups['name_node'][0] }}"
+logstash_webhdfs_port: 50070
+logstash_webhdfs_user: hdfs
+logstash_webhdfs_logs_dir: /logs
 
 # Logstash configuration
 logstash_input_log4j: yes
