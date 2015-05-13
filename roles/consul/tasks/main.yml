@@ -91,7 +91,7 @@
       mode: u=rw
     - src: health-check.sh.j2
       dest: /usr/local/bin/health-check.sh
-      mode: u=rwx
+      mode: u=rwx,g=rx,o=rx
   notify:
     - reload consul
   tags:
