@@ -16,8 +16,9 @@ ExecStart=/usr/bin/docker run \
     --rm \
     --name={{ logstash_container_name }} \
     --publish={{ logstash_syslog_port }}:{{ logstash_syslog_port }} \
-    --publish={{ logstash_collectd_port }}:{{ logstash_collectd_port }}/udp \
     --publish={{ logstash_log4j_port }}:{{ logstash_log4j_port }}/tcp \
+    --publish={{ logstash_collectd_port }}:{{ logstash_collectd_port }}/udp \
+    --publish={{ logstash_statsd_port }}:{{ logstash_statsd_port }}/udp \
     --publish={{ logstash_webhdfs_port }} \
     --volume={{ logstash_conf_host }}:{{ logstash_conf_container }} \
     --volume={{ docker_log_dir }}:{{ logstash_docker_logs }}:ro \

@@ -36,6 +36,13 @@ input {
     type => "collectd"
   }
 {% endif %}
+{% if logstash_input_statsd %}
+  udp {
+    add_field => { "docker_host" => "{{ ansible_hostname }}" }
+    port => {{ logstash_statsd_port }}
+    type => "statsd_client"
+  }
+{% endif %}
 }
 
 output {

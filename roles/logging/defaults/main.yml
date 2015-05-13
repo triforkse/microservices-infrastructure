@@ -10,8 +10,9 @@ mesos_log_dir: /var/log/mesos
 logstash_docker_logs: /docker_logs
 logstash_mesos_logs: /mesos_logs
 logstash_syslog_port: 5514
-logstash_collectd_port: 25826
 logstash_log4j_port: 4560
+logstash_collectd_port: 25826
+logstash_statsd_port: 8125
 logstash_webhdfs_host: "{{ groups['name_node'][0] }}"
 logstash_webhdfs_port: 50070
 logstash_webhdfs_user: hdfs
@@ -23,6 +24,7 @@ logstash_input_docker: yes
 logstash_input_mesos: yes
 logstash_input_syslog: yes
 logstash_input_collectd: yes
+logstash_input_statsd: yes
 logstash_output_webhdfs: yes
 logstash_output_logentries: no
 logstash_logentries_token: no

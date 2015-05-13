@@ -13,6 +13,7 @@ You can use these variables to customize your Logstash installations:
 |`logstash_input_mesos`|Read Mesos logs|yes|
 |`logstash_input_syslog`|Read RFC3164 syslog messages|yes|
 |`logstash_input_collectd`|Read events from the collectd binary protocol|yes|
+|`logstash_input_statsd`|Read events from StatsD clients|yes|
 |`logstash_output_webhdfs`|Store events via WebHDFS using gzip compression|yes|
 |`logstash_output_logentries`|Forward logs to [logentries](https://logentries.com/)|no|
 |`logstash_logentries_token`|Unique token provided by logentries|no|
