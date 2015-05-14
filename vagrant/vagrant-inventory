@@ -1,0 +1,26 @@
+# all
+[all]
+default
+
+# datacenters
+[vagrant]
+default
+
+# control
+[vault_servers]
+default
+
+[consul_servers]
+default
+
+[zookeeper_servers]
+default
+
+[mesos_leaders]
+default
+
+[marathon_servers]
+default
+
+[vagrant]
+default
