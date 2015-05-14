@@ -14,6 +14,7 @@ You can use these variables to customize your Logstash installations:
 |`logstash_input_syslog`|Read RFC3164 syslog messages|yes|5514|
 |`logstash_input_collectd`|Read events from the collectd binary protocol|yes|25826|
 |`logstash_input_statsd`|Read events from StatsD clients|yes|8125|
-|`logstash_output_webhdfs`|Store events via WebHDFS using gzip compression|yes|50070|
+|`logstash_output_stdout`|A simple output which prints to the STDOUT|yes|-|
+|`logstash_output_webhdfs`|Store events via WebHDFS using gzip compression|no|50070|
 |`logstash_output_logentries`|Forward logs to [logentries](https://logentries.com/)|no|-|
 |`logstash_logentries_token`|Unique token provided by logentries|no|-|

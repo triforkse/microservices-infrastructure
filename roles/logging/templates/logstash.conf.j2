@@ -46,6 +46,11 @@ input {
 }
 
 output {
+{% if logstash_output_stdout %}
+  stdout {
+    codec => rubydebug
+  }
+{% endif %}
 {% if logstash_output_webhdfs %}
   webhdfs {
     workers => 2
