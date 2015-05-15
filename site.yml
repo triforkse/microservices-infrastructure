@@ -17,13 +17,13 @@
   roles:
     - common
     - logrotate
-    - logstash
     - consul-template
     - docker
     - dnsmasq
     - monitoring
     - nginx
     - consul
+    - logstash
 
 - include: playbooks/consul-join-wan.yml
 

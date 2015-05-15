@@ -33,17 +33,17 @@
   tags:
     - monitoring
 
-- name: backup collectd configuration
-  sudo: yes
-  command: mv /etc/collectd.conf /etc/collectd.conf.original
-  tags:
-    - monitoring
+#- name: backup collectd configuration
+#  sudo: yes
+#  command: mv /etc/collectd.conf /etc/collectd.conf.original
+#  tags:
+#    - monitoring
 
 - name: deploy collectd daemon configuration
   sudo: yes
   template:
     src: collectd.conf.j2
-    dest: /etc/ collectd.conf
+    dest: /etc/collectd.conf
   tags:
     - monitoring
 
