@@ -1,33 +1,42 @@
 # all
 [all]
-host-[01:05]
+host-[11:15]
 
 # datacenters
 [dc1]
-host-[01:05]
+host-[11:15]
 
 # control
 [vault_servers]
-host-[01:03]
+host-[11:13]
 
 [consul_servers]
-host-[01:03]
+host-[11:13]
 
 [zookeeper_servers]
-host-[01:03]
+host-[11:13]
 
 [mesos_leaders]
-host-[01:03]
+host-[11:13]
 
 [marathon_servers]
-host-[01:03]
+host-[11:13]
+
+[name_node]
+host-11
 
 # resource nodes
 [consul_clients]
-host-[04:05]
+host-[14:15]
 
 [mesos_followers]
-host-[04:05]
+host-[14:15]
 
 [proxy_servers]
-host-[04:05]
+host-[14:15]
+
+[data_nodes]
+host-[14:15]
+
+[kafka_scheduler]
+host-[14:15]

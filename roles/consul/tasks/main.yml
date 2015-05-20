@@ -79,7 +79,7 @@
   tags:
     - consul
 
-- name: configure consul health check
+- name: create consul health check
   sudo: yes
   template:
     src: "{{ item.src }}"
@@ -92,6 +92,38 @@
     - src: health-check.sh.j2
       dest: /usr/local/bin/health-check.sh
       mode: u=rwx,g=rx,o=rx
+  notify:
+    - reload consul
+  tags:
+    - consul
+
+- name: create hadoop datanode health checks
+  sudo: yes
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: "{{ item.mode }}"
+  with_items:
+    - src: hdfs_datanode.json.j2
+      dest: /etc/consul/hdfs_datanode.json
+      mode: u=rw
+  when: "'data_nodes' in {{ group_names }}"
+  notify:
+    - reload consul
+  tags:
+    - consul
+
+- name: create hadoop namenode health checks
+  sudo: yes
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: "{{ item.mode }}"
+  with_items:
+    - src: hdfs_namenode.json.j2
+      dest: /etc/consul/hdfs_namenode.json
+      mode: u=rw
+  when: "'name_node' in {{ group_names }}"
   notify:
     - reload consul
   tags:
