@@ -18,7 +18,9 @@ ExecStart=/usr/bin/docker run \
     --name=nginx-mesos-leader \
     -p 5050:5050 \
     -v /etc/nginx/ssl:/etc/nginx/ssl:ro \
+{% if do_consul_ssl %}
     -v /etc/pki/ca-trust/source/anchors/:/usr/local/share/ca-certificates/:ro \
+{% endif %}
     -e NGINX_KV=service/nginx/templates/mesos-leader \
     -e NGINX_ENABLE_AUTH=true \
     -e NGINX_PUBLIC_IP={{ ansible_default_ipv4.address }} \
