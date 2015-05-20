@@ -1,0 +1,33 @@
+{
+  "services": [
+    {
+    "id": "webui",
+    "name": "hadoop",
+    "tags": [ "WebUI", "datanode" ],
+    "port": 50075,
+    "check": {
+      "script": "curl --silent localhost:50075  | grep -o 'DataNode on' 2>&1",
+      "interval": "10s"
+    }
+},
+    {
+    "id": "data",
+    "name": "hadoop",
+    "tags": [ "data", "datanode" ],
+    "port": 50010,
+    "check": {
+      "script": "/bin/nc localhost 50010 < /dev/null ",
+      "interval": "10s"
+    }
+},
+    {
+    "id": "metadata",
+    "name": "hadoop",
+    "tags": [ "metadata", "datanode" ],
+    "port": 50020,
+    "check": {
+      "script": "/bin/nc localhost 50020 < /dev/null ",
+      "interval": "10s"
+    }
+}
+]}

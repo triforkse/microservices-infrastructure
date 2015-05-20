@@ -1,0 +1,23 @@
+{
+  "services": [
+    {
+    "id": "webui",
+    "name": "hadoop",
+    "tags": [ "WebUI", "namenode" ],
+    "port": 50070,
+    "check": {
+      "script": "/bin/nc localhost 50070 < /dev/null ",
+      "interval": "20s"
+    }
+},
+    {
+    "id": "metadata",
+    "name": "hadoop",
+    "tags": [ "metadata", "namenode" ],
+    "port": 8020,
+    "check": {
+      "script": "/bin/nc `hostname` 8020 < /dev/null ",
+      "interval": "20s"
+    }
+}
+]}
